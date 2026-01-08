@@ -265,18 +265,33 @@ a:hover {
   border: none;
   cursor: pointer;
   padding: var(--space-xs);
+  z-index: 1001;
+  position: relative;
 }
 
 .nav-toggle span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 28px;
+  height: 3px;
   background: var(--navy);
-  margin: 5px 0;
+  margin: 6px 0;
   transition: all var(--transition-base);
+  border-radius: 2px;
 }
 
-@media (max-width: 768px) {
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+@media (max-width: 968px) {
   .nav-toggle {
     display: block;
   }
@@ -286,17 +301,31 @@ a:hover {
     top: 72px;
     left: 0;
     right: 0;
+    bottom: 0;
     background: var(--white);
     flex-direction: column;
-    padding: var(--space-lg);
+    padding: var(--space-xl) var(--space-lg);
     gap: var(--space-md);
     transform: translateX(100%);
     transition: transform var(--transition-base);
-    border-bottom: 2px solid var(--navy);
+    border-left: 2px solid var(--navy);
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
   }
   
   .nav-menu.active {
     transform: translateX(0);
+  }
+  
+  .nav-link {
+    font-size: var(--text-lg);
+    padding: var(--space-sm) 0;
+  }
+  
+  .nav-cta {
+    display: block;
+    text-align: center;
+    margin-top: var(--space-md);
   }
 }
 
@@ -322,6 +351,17 @@ a:hover {
   height: 100%;
   background: linear-gradient(135deg, transparent 0%, rgba(248, 207, 64, 0.05) 100%);
   pointer-events: none;
+}
+
+/* Hero Variant - Minimal (for internal pages) */
+.hero.hero-minimal {
+  padding-top: calc(72px + var(--space-2xl));
+  padding-bottom: var(--space-2xl);
+}
+
+.hero.hero-minimal::before {
+  width: 30%;
+  opacity: 0.5;
 }
 
 .hero-container {
@@ -753,6 +793,51 @@ legend {
 .color-white { color: var(--white); }
 .color-navy { color: var(--navy); }
 .color-yellow { color: var(--yellow); }
+
+/* Page badge/meta */
+.page-badge {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--yellow);
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-mono);
+}
+
+/* Section dividers */
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--yellow);
+  margin: var(--space-2xl) auto;
+}
+
+/* Page intro text */
+.page-intro {
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  max-width: 65ch;
+  margin: 0 auto var(--space-xl);
+  color: var(--text);
+}
+
+/* Smooth page transitions */
+main {
+  animation: fadeInPage 0.4s ease-out;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ===================================
    DIAGNOSTIC CHECKLIST
