@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://zinara.co.ke/sitemap.xml
+
+# Crawl rate
+Crawl-delay: 1
+
+# Block admin/private areas (if they exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Allow all other pages
+Allow: /audit
+Allow: /systems
+Allow: /about
+Allow: /contact
+Allow: /results
+Allow: /portfolio
+Allow: /insights
+Allow: /failure
+Allow: /rebuild
+Allow: /system
