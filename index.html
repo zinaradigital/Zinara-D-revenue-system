@@ -384,6 +384,39 @@
         </div>
       </div>
     </section>
+
+    <!-- Quick Navigation Section -->
+    <section class="section bg-gray">
+      <div class="container">
+        <h2 class="text-center mb-xl">Explore Zinara</h2>
+        
+        <div class="grid-3">
+          <a href="/systems" class="card-link">
+            <div class="card">
+              <div class="card-meta">Core Offering</div>
+              <h4>Six Systems</h4>
+              <p>Explore the complete infrastructure we build to make revenue predictable.</p>
+            </div>
+          </a>
+          
+          <a href="/about" class="card-link">
+            <div class="card">
+              <div class="card-meta">Company</div>
+              <h4>About Zinara</h4>
+              <p>Learn about our approach, commitment, and how we operate.</p>
+            </div>
+          </a>
+          
+          <a href="/contact" class="card-link">
+            <div class="card">
+              <div class="card-meta">Get In Touch</div>
+              <h4>Contact Us</h4>
+              <p>Email, phone, or schedule a diagnostic conversation.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -458,6 +491,24 @@
     
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+      }
     });
     
     // Hide nav on scroll down, show on scroll up
@@ -474,6 +525,8 @@
       
       if (currentScroll > lastScroll && currentScroll > 100) {
         nav.classList.add('hidden');
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
       } else {
         nav.classList.remove('hidden');
       }
