@@ -21,26 +21,7 @@
 <body>
   <a href="#main-content" class="skip-to-content">Skip to content</a>
 
-  <nav class="nav" id="nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">ZINARA</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="systems.html" class="nav-link">Systems</a></li>
-        <li><a href="failure.html" class="nav-link">How Systems Fail</a></li>
-        <li><a href="results.html" class="nav-link">Results</a></li>
-        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li><a href="insights.html" class="nav-link">Insights</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-        <li><a href="audit.html" class="nav-cta">Request Audit</a></li>
-      </ul>
-    </div>
-  </nav>
+  
 
   <main id="main-content">
     <section class="hero">
@@ -261,85 +242,21 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>ZINARA</h3>
-          <p>Revenue Recovery Systems</p>
-          <ul class="footer-contact">
-            <li><strong>Email:</strong> <a href="mailto:info@zinara.co.ke">info@zinara.co.ke</a></li>
-            <li><strong>Phone:</strong> <a href="tel:+254798859452">+254 798 859 452</a></li>
-            <li><strong>Location:</strong> Kenya & East Africa</li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Services</h4>
-          <ul class="footer-links">
-            <li><a href="audit.html">Revenue Recovery Audit</a></li>
-            <li><a href="systems.html">Core Systems</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Learn</h4>
-          <ul class="footer-links">
-            <li><a href="failure.html">How Systems Fail</a></li>
-            <li><a href="results.html">Results</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="insights.html">Insights</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Company</h4>
-          <ul class="footer-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Zinara. Revenue Recovery Systems for Kenya & East Africa.</p>
-      </div>
-    </div>
-  </footer>
+  
 
-  <script>
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      navToggle.classList.toggle('active');
-    });
-    const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-      });
-    });
-    document.addEventListener('click', (e) => {
-      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-      }
-    });
-    let lastScroll = 0;
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= 0) {
-        nav.classList.remove('hidden');
-        return;
-      }
-      if (currentScroll > lastScroll && currentScroll > 100) {
-        nav.classList.add('hidden');
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-      } else {
-        nav.classList.remove('hidden');
-      }
-      lastScroll = currentScroll;
-    });
+  
+
+  <!-- Navigation Scripts -->
+  <script type="module">
+    import { createHeader, createFooter } from './components/header.js';
+    
+    // Insert header at the beginning of the body
+    document.body.insertAdjacentHTML('afterbegin', createHeader());
+    
+    // Insert footer before the closing body tag
+    document.body.insertAdjacentHTML('beforeend', createFooter());
   </script>
+  <script src="/js/navigation.js" defer></script>
+
 </body>
 </html>

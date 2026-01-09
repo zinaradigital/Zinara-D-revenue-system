@@ -1017,3 +1017,150 @@ tbody tr:hover {
 .skip-to-content:focus {
   top: 0;
 }
+
+/* ===================================
+   ENHANCED NAVIGATION STYLES
+   =================================== */
+
+/* Active Navigation Link */
+.nav-link.active {
+  color: var(--yellow) !important;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background: var(--yellow);
+}
+
+/* Hamburger Menu Animation */
+.hamburger {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(8px);
+}
+
+.nav-toggle.active .hamburger {
+  background: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+  transform: rotate(45deg);
+}
+
+.nav-toggle.active .hamburger::after {
+  transform: rotate(-45deg);
+}
+
+/* Menu Open State */
+html.menu-open {
+  overflow: hidden;
+}
+
+/* Enhanced Mobile Menu */
+@media (max-width: 767px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--white);
+    flex-direction: column;
+    padding: 5rem 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    gap: 0;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-link,
+  .nav-cta {
+    padding: 1rem 0;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    font-size: var(--text-lg);
+  }
+  
+  .nav-cta {
+    margin: 1rem 0 0;
+    text-align: center;
+  }
+}
+
+/* Focus Styles for Accessibility */
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Footer Enhancements */
+.footer-heading {
+  color: var(--navy);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.footer-tagline {
+  color: var(--gray);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-md);
+}
+
+.footer-contact {
+  font-style: normal;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact p {
+  margin-bottom: var(--space-xs);
+}
+
+.footer-contact a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--yellow);
+}
+
+/* Print Styles */
+@media print {
+  .nav,
+  .footer {
+    display: none;
+  }
+}
