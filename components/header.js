@@ -51,13 +51,16 @@ export function createHeader() {
 
 export function createHeaderWithBreadcrumbs() {
   const header = createHeader();
-  const breadcrumbs = typeof window !== 'undefined' && window.router ? 
-    `<script type="module">
+  
+  // Always try to create breadcrumbs, but don't fail if router isn't ready
+  const breadcrumbScript = `
+    <script type="module">
       import { createBreadcrumbs } from './components/breadcrumbs.js';
       document.body.insertAdjacentHTML('afterbegin', createBreadcrumbs());
-    </script>` : '';
+    </script>
+  `;
   
-  return header + breadcrumbs;
+  return header + breadcrumbScript;
 }
 }
 
