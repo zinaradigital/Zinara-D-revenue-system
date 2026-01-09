@@ -9,14 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Set active link based on current page
   function setActiveLink() {
-    const currentPath = window.location.pathname;
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     navLinks.forEach(link => {
-      const linkPath = new URL(link.href, window.location.origin).pathname;
-      const isActive = currentPath === linkPath || 
-                      (currentPath.endsWith('/') && linkPath.endsWith('index.html')) ||
-                      (currentPath === '' && linkPath.endsWith('index.html')) ||
-                      (currentPath === '/' && linkPath === '/index.html') ||
-                      (currentPath === '/index.html' && linkPath === '/');
+      const linkHref = link.getAttribute('href');
+      const isActive = linkHref === currentPath || 
+                      (currentPath === '' && linkHref === 'index.html') ||
+                      (currentPath === 'index.html' && linkHref === '');
       
       if (isActive) {
         link.classList.add('active');
