@@ -134,16 +134,19 @@
 
   <!-- Navigation Scripts -->
   <script type="module">
-    import { createHeader, createFooter } from './components/header.js';
+    import { createHeaderWithBreadcrumbs, createFooter } from './components/header.js';
     
-    // Insert header at the beginning of the body
-    document.body.insertAdjacentHTML('afterbegin', createHeader());
+    // Insert header with breadcrumbs at the beginning of the body
+    document.body.insertAdjacentHTML('afterbegin', createHeaderWithBreadcrumbs());
     
     // Insert footer before the closing body tag
     document.body.insertAdjacentHTML('beforeend', createFooter());
   </script>
-  <script src="/js/navigation.js" defer></script>
-  <script src="/js/navigation.js" defer></script>
+  <script src="/js/router.js"></script>
+  <script src="/js/navigation-guard.js"></script>
+  
+  
+  
 
 </body>
 </html>
