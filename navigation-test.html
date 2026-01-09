@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-KE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Test | Zinara</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">ZINARA</a>
+      
+      <button class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="systems.html" class="nav-link">Systems</a></li>
+        <li><a href="failure.html" class="nav-link">How Systems Fail</a></li>
+        <li><a href="results.html" class="nav-link">Results</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="audit.html" class="nav-cta">Request Audit</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main style="padding: 100px 20px;">
+    <h1>Navigation Test Page</h1>
+    <p>This page tests basic navigation without complex routing.</p>
+    <p>If you can navigate from here to all other pages, the basic system works.</p>
+    
+    <div style="margin-top: 20px;">
+      <h2>Test Navigation:</h2>
+      <a href="systems.html">Go to Systems</a> |
+      <a href="failure.html">Go to Failure</a> |
+      <a href="results.html">Go to Results</a> |
+      <a href="portfolio.html">Go to Portfolio</a> |
+      <a href="insights.html">Go to Insights</a> |
+      <a href="about.html">Go to About</a> |
+      <a href="contact.html">Go to Contact</a> |
+      <a href="audit.html">Go to Audit</a>
+    </div>
+  </main>
+  
+  <script>
+    // Simple, guaranteed working navigation
+    const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage || 
+          (currentPage === '' && href === 'index.html') ||
+          (currentPage === 'index.html' && href === '')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+    
+    // Mobile menu
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>
