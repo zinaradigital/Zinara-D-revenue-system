@@ -1,11 +1,22 @@
-// Enhanced navigation functionality with improved mobile support and accessibility
+// Enhanced navigation functionality with routing and state management
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu elements
-  const navToggle = document.getElementById('nav-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
-  const nav = document.getElementById('nav');
-  const html = document.documentElement;
+  // Load router and navigation guard first
+  const routerScript = document.createElement('script');
+  routerScript.src = '/js/router.js';
+  routerScript.onload = initNavigation;
+  document.head.appendChild(routerScript);
+  
+  const guardScript = document.createElement('script');
+  guardScript.src = '/js/navigation-guard.js';
+  document.head.appendChild(guardScript);
+  
+  function initNavigation() {
+    // Mobile menu elements
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+    const nav = document.getElementById('nav');
+    const html = document.documentElement;
 
   // Set active link based on current page
   function setActiveLink() {

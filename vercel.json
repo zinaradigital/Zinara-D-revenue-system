@@ -1,6 +1,58 @@
 {
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "status": 200, "dest": "/index.html" }
+    {
+      "src": "/index.html",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/systems.html",
+      "dest": "/systems.html"
+    },
+    {
+      "src": "/failure.html",
+      "dest": "/failure.html"
+    },
+    {
+      "src": "/results.html",
+      "dest": "/results.html"
+    },
+    {
+      "src": "/portfolio.html",
+      "dest": "/portfolio.html"
+    },
+    {
+      "src": "/insights.html",
+      "dest": "/insights.html"
+    },
+    {
+      "src": "/about.html",
+      "dest": "/about.html"
+    },
+    {
+      "src": "/contact.html",
+      "dest": "/contact.html"
+    },
+    {
+      "src": "/audit.html",
+      "dest": "/audit.html"
+    },
+    {
+      "src": "/privacy.html",
+      "dest": "/privacy.html"
+    },
+    {
+      "src": "/terms.html",
+      "dest": "/terms.html"
+    },
+    {
+      "src": "/systems/workflow-automation.html",
+      "dest": "/systems/workflow-automation.html"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/$1.html"
+    }
   ]
 }

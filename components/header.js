@@ -49,6 +49,18 @@ export function createHeader() {
   `;
 }
 
+export function createHeaderWithBreadcrumbs() {
+  const header = createHeader();
+  const breadcrumbs = typeof window !== 'undefined' && window.router ? 
+    `<script type="module">
+      import { createBreadcrumbs } from './components/breadcrumbs.js';
+      document.body.insertAdjacentHTML('afterbegin', createBreadcrumbs());
+    </script>` : '';
+  
+  return header + breadcrumbs;
+}
+}
+
 export function createFooter() {
   const currentYear = new Date().getFullYear();
   
