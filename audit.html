@@ -134,14 +134,14 @@
       </button>
       
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="/systems" class="nav-link">Systems</a></li>
-        <li><a href="/failure" class="nav-link">How Systems Fail</a></li>
-        <li><a href="/results" class="nav-link">Results</a></li>
-        <li><a href="/portfolio" class="nav-link">Portfolio</a></li>
-        <li><a href="/insights" class="nav-link">Insights</a></li>
-        <li><a href="/about" class="nav-link">About</a></li>
-        <li><a href="/contact" class="nav-link">Contact</a></li>
-        <li><a href="/audit" class="nav-cta">Request Audit</a></li>
+        <li><a href="systems.html" class="nav-link">Systems</a></li>
+        <li><a href="systems.html" class="nav-link">How Systems Fail</a></li>
+        <li><a href="systems.html" class="nav-link">Results</a></li>
+        <li><a href="systems.html" class="nav-link">Portfolio</a></li>
+        <li><a href="systems.html" class="nav-link">Insights</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="audit.html" class="nav-cta">Request Audit</a></li>
       </ul>
     </div>
   </nav>
@@ -518,8 +518,8 @@
         <div class="footer-section">
           <h4>Services</h4>
           <ul class="footer-links">
-            <li><a href="/audit">Revenue Recovery Audit</a></li>
-            <li><a href="/systems">Systems</a></li>
+            <li><a href="audit.html">Revenue Recovery Audit</a></li>
+            <li><a href="systems.html">Systems</a></li>
             <li><a href="/systems/workflow-automation">Workflow Automation</a></li>
             <li><a href="/systems/revenue-infrastructure">Revenue Infrastructure</a></li>
             <li><a href="/systems/lead-handling">Lead Handling</a></li>
@@ -530,20 +530,20 @@
         <div class="footer-section">
           <h4>Learn</h4>
           <ul class="footer-links">
-            <li><a href="/failure">How Systems Fail</a></li>
+            <li><a href="systems.html">How Systems Fail</a></li>
             <li><a href="/rebuild">What We Rebuild</a></li>
             <li><a href="/system">Revenue Control System</a></li>
-            <li><a href="/results">Results</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/insights">Insights</a></li>
+            <li><a href="systems.html">Results</a></li>
+            <li><a href="systems.html">Portfolio</a></li>
+            <li><a href="systems.html">Insights</a></li>
           </ul>
         </div>
         
         <div class="footer-section">
           <h4>Company</h4>
           <ul class="footer-links">
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="/privacy">Privacy Policy</a></li>
             <li><a href="/terms">Terms of Service</a></li>
             <li><a href="/cookies">Cookie Policy</a></li>
@@ -570,6 +570,24 @@
     
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+      }
     });
     
     // Hide nav on scroll down, show on scroll up
@@ -586,6 +604,8 @@
       
       if (currentScroll > lastScroll && currentScroll > 100) {
         nav.classList.add('hidden');
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
       } else {
         nav.classList.remove('hidden');
       }
