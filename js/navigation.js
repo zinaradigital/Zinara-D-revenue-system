@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
   function setActiveLink() {
     const currentPath = window.location.pathname;
     navLinks.forEach(link => {
-      const linkPath = new URL(link.href).pathname;
+      const linkPath = new URL(link.href, window.location.origin).pathname;
       const isActive = currentPath === linkPath || 
                       (currentPath.endsWith('/') && linkPath.endsWith('index.html')) ||
-                      (currentPath === '' && linkPath.endsWith('index.html'));
+                      (currentPath === '' && linkPath.endsWith('index.html')) ||
+                      (currentPath === '/' && linkPath === '/index.html') ||
+                      (currentPath === '/index.html' && linkPath === '/');
       
       if (isActive) {
         link.classList.add('active');
@@ -33,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Toggle mobile menu
   function toggleMenu(isOpen) {
+    if (!navToggle || !navMenu) return;
+    
     const newState = isOpen ?? navToggle.getAttribute('aria-expanded') !== 'true';
     
     // Update ARIA attributes
@@ -43,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
     navMenu.classList.toggle('active', newState);
     navToggle.classList.toggle('active', newState);
     html.classList.toggle('menu-open', newState);
+    
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = newState ? 'hidden' : '';
   }
 
   // Initialize navigation
@@ -58,18 +65,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        toggleMenu(false);
+      });
+    });
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target) && navMenu.classList.contains('active')) {
+      if (nav && navMenu && !nav.contains(e.target) && navMenu.classList.contains('active')) {
         toggleMenu(false);
       }
     });
 
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
         toggleMenu(false);
-        navToggle.focus();
+        if (navToggle) navToggle.focus();
       }
     });
 
@@ -109,31 +123,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Hide/show nav on scroll
-    let lastScroll = 0;
-    const scrollThreshold = 100;
-    let ticking = false;
+    if (nav) {
+      let lastScroll = 0;
+      const scrollThreshold = 100;
+      let ticking = false;
 
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScroll = window.pageYOffset;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const currentScroll = window.pageYOffset;
 
-          if (currentScroll <= 0) {
-            nav.classList.remove('hidden');
-          } else if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
-            nav.classList.add('hidden');
-            toggleMenu(false);
-          } else {
-            nav.classList.remove('hidden');
-          }
+            if (currentScroll <= 0) {
+              nav.classList.remove('hidden');
+            } else if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+              nav.classList.add('hidden');
+              toggleMenu(false);
+            } else {
+              nav.classList.remove('hidden');
+            }
 
-          lastScroll = currentScroll;
-          ticking = false;
-        });
+            lastScroll = currentScroll;
+            ticking = false;
+          });
 
-        ticking = true;
-      }
-    }, { passive: true });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
   }
 
   // Initialize navigation
