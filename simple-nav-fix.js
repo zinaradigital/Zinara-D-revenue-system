@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en-KE">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service | Zinara</title>
-  <meta name="description" content="Zinara's terms of service - Rules and guidelines for using our services">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-<body>\n
+// Simple Navigation Fix - Preserves existing content
+const fs = require('fs');
+const path = require('path');
+
+// Simple, reliable navigation HTML
+const simpleNavigation = `
   <!-- Simple Navigation -->
   <nav class="main-nav">
     <div class="nav-container">
@@ -34,53 +28,10 @@
       </ul>
     </div>
   </nav>
+`;
 
-  <main id="main-content" class="container">
-    <section class="section">
-      <h1>Terms of Service</h1>
-      <p class="text-lg">Last updated: January 2026</p>
-      
-      <div class="content-block">
-        <h2>Acceptance of Terms</h2>
-        <p>By accessing and using Zinara's services, you accept and agree to be bound by the terms and provision of this agreement.</p>
-        
-        <h2>Services</h2>
-        <p>Zinara provides revenue recovery systems and consulting services to help businesses optimize their revenue streams.</p>
-        
-        <h2>Client Responsibilities</h2>
-        <p>Clients are responsible for providing accurate information and cooperating with our team to achieve the best results.</p>
-        
-        <h2>Payment Terms</h2>
-        <p>Payment terms are outlined in individual service agreements. All payments must be made according to the agreed schedule.</p>
-        
-        <h2>Confidentiality</h2>
-        <p>Both parties agree to maintain confidentiality of all proprietary information shared during the course of business.</p>
-        
-        <h2>Limitation of Liability</h2>
-        <p>Zinara shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use of our services.</p>
-        
-        <h2>Termination</h2>
-        <p>Either party may terminate the service agreement with written notice according to the terms specified in the agreement.</p>
-        
-        <h2>Contact Information</h2>
-        <p>For questions about these terms, please contact us at:</p>
-        <p>Email: <a href="mailto:info@zinara.co.ke">info@zinara.co.ke</a></p>
-      </div>
-    </section>
-  </main>
-
-  
-  <script src="/js/router.js"></script>
-  <script src="/js/navigation-guard.js"></script>
-  
-  
-
-  <!-- Emergency Navigation Fallback -->
-  <script src="/js/emergency-nav-fix.js"></script>
-
-
-<style>
-
+// Simple navigation CSS
+const simpleNavCSS = `
 /* Simple Navigation Fix */
 .main-nav {
   background: #00043F;
@@ -199,10 +150,10 @@
     transform: rotate(-45deg) translate(7px, -6px);
   }
 }
+`;
 
-</style>
-<script>
-
+// Simple navigation JavaScript
+const simpleNavJS = `
 // Simple Navigation System - Bulletproof
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -259,7 +210,58 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Simple Navigation Loaded Successfully');
 });
+`;
 
+// HTML files to update
+const htmlFiles = [
+    'index.html',
+    'systems.html',
+    'failure.html',
+    'results.html',
+    'portfolio.html',
+    'insights.html',
+    'about.html',
+    'contact.html',
+    'audit.html',
+    'privacy.html',
+    'terms.html'
+];
+
+function updateHtmlFile(filePath) {
+    if (!fs.existsSync(filePath)) {
+        console.log(`⚠️  File not found: ${filePath}`);
+        return;
+    }
+    
+    let content = fs.readFileSync(filePath, 'utf8');
+    
+    // Remove old navigation scripts and components
+    content = content.replace(/<!-- Navigation Scripts -->[\s\S]*?<script[\s\S]*?<\/script>/g, '');
+    content = content.replace(/import.*createHeader.*from.*components.*;/g, '');
+    content = content.replace(/document\.body\.insertAdjacentHTML.*createHeader.*/g, '');
+    content = content.replace(/document\.body\.insertAdjacentHTML.*createFooter.*/g, '');
+    
+    // Add simple navigation after body tag
+    content = content.replace('<body>', `<body>\\n${simpleNavigation}`);
+    
+    // Add simple CSS and JS before closing body tag
+    content = content.replace('</body>', `
+<style>
+${simpleNavCSS}
+</style>
+<script>
+${simpleNavJS}
 </script>
-</body>
-</html>
+</body>`);
+    
+    fs.writeFileSync(filePath, content, 'utf8');
+    console.log(`✅ Updated ${filePath} with simple navigation`);
+}
+
+// Update all HTML files
+htmlFiles.forEach(file => {
+    updateHtmlFile(file);
+});
+
+console.log('🎉 Simple navigation fix applied to all files!');
+console.log('📍 Repository: https://github.com/zinaradigital/ZINARA-R.STM.-WIND-CLONE');
