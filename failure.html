@@ -1,649 +1,555 @@
 <!DOCTYPE html>
-<html lang="en-KE">
+<html lang="en">
 <head>
+  <!-- Basic Meta -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
+  <!-- Primary Meta Tags -->
+  <title>How Systems Fail — Common Infrastructure Breakdowns | Zinara</title>
+  <meta name="title" content="How Systems Fail — Common Infrastructure Breakdowns | Zinara">
+  <meta name="description" content="Why revenue systems collapse: tool sprawl, broken handoffs, manual gaps. Learn what fails before you can fix it. Diagnostic analysis from Zinara.">
+  <meta name="keywords" content="system failure, infrastructure breakdown, tool sprawl, broken handoffs, manual processes, operational failure">
+  <link rel="canonical" href="https://zinara.co.ke/failure">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zinara.co.ke/failure">
+  <meta property="og:title" content="How Systems Fail — Common Infrastructure Breakdowns">
+  <meta property="og:description" content="Why revenue systems collapse: tool sprawl, broken handoffs, manual gaps. Diagnostic analysis from Zinara.">
+  <meta property="og:image" content="https://zinara.co.ke/assets/images/og-failure.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Zinara">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://zinara.co.ke/failure">
+  <meta name="twitter:title" content="How Systems Fail — Common Infrastructure Breakdowns">
+  <meta name="twitter:description" content="Why revenue systems collapse: tool sprawl, broken handoffs, manual gaps. Diagnostic analysis from Zinara.">
+  <meta name="twitter:image" content="https://zinara.co.ke/assets/images/og-failure.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <title>How Revenue Systems Fail — Structural Diagnosis | Zinara</title>
-  <meta name="description" content="Most businesses lose revenue at three structural failure points: intent capture, response control, and conversion infrastructure. Here's where systems fail.">
-  <meta name="keywords" content="revenue system failure, lead handling infrastructure, conversion system diagnosis, why inbound leads don't convert, manual follow-up failure Kenya">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://zinara.co.ke/failure">
-  <meta http-equiv="content-language" content="en-KE">
-  <meta name="theme-color" content="#00043F">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <!-- Schema.org for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Systems Fail — Common Infrastructure Breakdowns",
+    "description": "Why revenue systems collapse: tool sprawl, broken handoffs, manual gaps. Learn what fails before you can fix it.",
+    "image": "https://zinara.co.ke/assets/images/og-failure.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Zinara",
+      "url": "https://zinara.co.ke"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Zinara",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://zinara.co.ke/assets/images/logo.png"
+      }
+    },
+    "datePublished": "2025-01-18",
+    "dateModified": "2025-01-18",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://zinara.co.ke/failure"
+    }
+  }
+  </script>
 </head>
-<body>\n
-  <!-- Simple Navigation -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">ZINARA</a>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__container">
+      <a href="/" class="nav__logo" aria-label="Zinara home">
+        <span class="nav__logo-text">ZINARA</span>
+      </a>
       
-      <button class="mobile-toggle" id="mobile-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
       </button>
       
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="systems.html" class="nav-link">Systems</a></li>
-        <li><a href="failure.html" class="nav-link">How Systems Fail</a></li>
-        <li><a href="results.html" class="nav-link">Results</a></li>
-        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li><a href="insights.html" class="nav-link">Insights</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-        <li><a href="audit.html" class="nav-cta">Request Audit</a></li>
-      </ul>
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="/systems" class="nav__link">Systems</a>
+          </li>
+          <li class="nav__item">
+            <a href="/failure" class="nav__link nav__link--active" aria-current="page">How Systems Fail</a>
+          </li>
+          <li class="nav__item">
+            <a href="/rebuild" class="nav__link">What We Rebuild</a>
+          </li>
+          <li class="nav__item">
+            <a href="/results" class="nav__link">Results</a>
+          </li>
+          <li class="nav__item">
+            <a href="/about" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="/insights" class="nav__link">Insights</a>
+          </li>
+          <li class="nav__item nav__item--cta">
+            <a href="/audit" class="btn btn--primary btn--small">Request Audit</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-\n
-  <!-- Simple Navigation -->
-  
 
-  <a href="#main-content" class="skip-to-content">Skip to content</a>
-
+  <!-- Main Content -->
   <main id="main-content">
-    <section class="hero">
-      <div class="container hero-container">
-        <div class="page-badge animate-in" style="color: var(--yellow);">EDUCATIONAL</div>
-        <h1 class="animate-in animate-delay-1">How Revenue Systems Fail</h1>
-        <p class="hero-subtitle animate-in animate-delay-2">
-          Revenue loss is not random. It's structural. Three failure points exist in every business.
-        </p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container container-narrow">
-        <div class="content-block">
-          <h2>The Infrastructure Fails at Three Points</h2>
-          <p class="text-large">
-            Inbound interest exists. Revenue remains unpredictable. The handling system is failing.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-gray">
+    <!-- Hero Section -->
+    <section class="hero hero--page">
       <div class="container">
-        <div class="content-block">
-          <h2>Failure Point 1: Intent Capture</h2>
-          
-          <div class="grid-2 mt-lg">
-            <div>
-              <h3>What Happens</h3>
-              <p>Inbound signals arrive across disconnected channels:</p>
-              <ul>
-                <li>WhatsApp messages</li>
-                <li>Email inquiries</li>
-                <li>Phone calls</li>
-                <li>Website form submissions</li>
-                <li>Social media DMs</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3>What's Missing</h3>
-              <p>No central system records:</p>
-              <ul>
-                <li>Time of contact</li>
-                <li>Source of intent</li>
-                <li>Message content</li>
-                <li>Response requirement</li>
-                <li>Follow-up status</li>
-              </ul>
-            </div>
+        <div class="hero__content">
+          <h1 class="hero__title">How Systems Fail</h1>
+          <p class="hero__subtitle">
+            Common infrastructure breakdowns that cost companies revenue, time, and sanity
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="prose">
+          <p class="lead">
+            Your systems didn't collapse overnight. They degraded slowly—one workaround at a time, 
+            one manual process added, one integration that never quite worked.
+          </p>
+          <p>
+            Understanding how systems fail is the first step to rebuilding them correctly. 
+            Here are the common patterns we diagnose every day.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Failure Pattern 1 -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="failure-pattern">
+          <div class="failure-pattern__header">
+            <span class="failure-pattern__number">01</span>
+            <h2 class="failure-pattern__title">Tool Sprawl</h2>
           </div>
           
-          <div class="card mt-lg" style="border-left: 4px solid var(--yellow);">
-            <h4 style="margin-top: 0; color: var(--yellow);">The Result</h4>
-            <p style="margin: 0; font-size: 1.125rem;">Messages are lost. Contacts go unanswered. Intent decays before awareness.</p>
+          <div class="failure-pattern__content">
+            <h3>The Symptom</h3>
+            <p>
+              You have 12+ SaaS tools. Teams use different platforms for the same task. 
+              No one knows which system is the source of truth.
+            </p>
+            
+            <h3>How It Happens</h3>
+            <ul>
+              <li>New hires bring their preferred tools</li>
+              <li>Departments buy software without coordination</li>
+              <li>Free trials turn into permanent subscriptions</li>
+              <li>Legacy tools remain because "someone might need them"</li>
+            </ul>
+            
+            <h3>The Cost</h3>
+            <ul>
+              <li><strong>$30K–$200K/year</strong> in redundant subscriptions</li>
+              <li>Data fragmented across platforms—no single view of customers</li>
+              <li>Team members waste hours manually copying data between tools</li>
+              <li>Onboarding takes weeks because there's no clear workflow</li>
+            </ul>
+            
+            <h3>The Fix</h3>
+            <p>
+              <a href="/systems/workflow-automation">Workflow automation systems</a> that consolidate 
+              tools, eliminate redundancy, and create single sources of truth.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Failure Pattern 2 -->
     <section class="section">
       <div class="container">
-        <div class="content-block">
-          <h2>Failure Point 2: Response Control</h2>
-          
-          <div class="grid-2 mt-lg">
-            <div>
-              <h3>What Happens</h3>
-              <p>Manual follow-up begins. Response time varies.</p>
-              <ul>
-                <li>Some leads answered immediately</li>
-                <li>Some wait hours</li>
-                <li>Some forgotten entirely</li>
-                <li>No consistency</li>
-                <li>No automation</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3>What's Missing</h3>
-              <p>No system controls:</p>
-              <ul>
-                <li>Response speed</li>
-                <li>Message consistency</li>
-                <li>Follow-up sequence</li>
-                <li>Recovery attempts</li>
-                <li>Quality standards</li>
-              </ul>
-            </div>
+        <div class="failure-pattern">
+          <div class="failure-pattern__header">
+            <span class="failure-pattern__number">02</span>
+            <h2 class="failure-pattern__title">Broken Handoffs</h2>
           </div>
           
-          <div class="card mt-lg" style="border-left: 4px solid var(--yellow);">
-            <h4 style="margin-top: 0; color: var(--yellow);">The Result</h4>
-            <p style="margin: 0; font-size: 1.125rem;">Business responds when convenient. Intent decays when ignored. Revenue is lost to competitors with faster systems.</p>
+          <div class="failure-pattern__content">
+            <h3>The Symptom</h3>
+            <p>
+              Leads fall through cracks between marketing and sales. Customer data doesn't transfer 
+              from sales to operations. Every department blames another for missing information.
+            </p>
+            
+            <h3>How It Happens</h3>
+            <ul>
+              <li>Systems don't talk to each other</li>
+              <li>Handoff processes rely on email or Slack messages</li>
+              <li>No clear ownership of transition points</li>
+              <li>Manual data entry creates gaps and errors</li>
+            </ul>
+            
+            <h3>The Cost</h3>
+            <ul>
+              <li><strong>20–40% of leads</strong> never get followed up</li>
+              <li>Customer onboarding delayed by days or weeks</li>
+              <li>Support teams lack context—customers repeat themselves</li>
+              <li>Revenue lost because no one owns the middle of the funnel</li>
+            </ul>
+            
+            <h3>The Fix</h3>
+            <p>
+              <a href="/systems/lead-handling">Lead handling systems</a> and 
+              <a href="/systems/revenue-infrastructure">revenue infrastructure</a> that automate 
+              handoffs and ensure nothing falls through.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section bg-gray">
+    <!-- Failure Pattern 3 -->
+    <section class="section section--alt">
       <div class="container">
-        <div class="content-block">
-          <h2>Failure Point 3: Conversion Infrastructure</h2>
+        <div class="failure-pattern">
+          <div class="failure-pattern__header">
+            <span class="failure-pattern__number">03</span>
+            <h2 class="failure-pattern__title">Manual Process Debt</h2>
+          </div>
           
-          <div class="grid-2 mt-lg">
-            <div>
-              <h3>What Happens</h3>
-              <p>Contact is made. Interest is expressed.</p>
-              <ul>
-                <li>Conversations happen</li>
-                <li>Interest is verbal</li>
-                <li>Next steps unclear</li>
-                <li>Follow-up manual</li>
-                <li>Tracking absent</li>
-              </ul>
-            </div>
+          <div class="failure-pattern__content">
+            <h3>The Symptom</h3>
+            <p>
+              Your team spends hours on copy-paste work, updating spreadsheets, sending reminder 
+              emails, generating reports manually. Critical processes require specific people—if 
+              they're out, everything stops.
+            </p>
             
-            <div>
-              <h3>What's Missing</h3>
-              <p>The business lacks:</p>
-              <ul>
-                <li>Qualification systems</li>
-                <li>Conversion sequences</li>
-                <li>Value delivery mechanisms</li>
-                <li>Revenue tracking</li>
-                <li>Performance visibility</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="card mt-lg" style="border-left: 4px solid var(--yellow);">
-            <h4 style="margin-top: 0; color: var(--yellow);">The Result</h4>
-            <p style="margin: 0; font-size: 1.125rem;">Conversations happen. Revenue remains unpredictable. No data exists to optimize or scale.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container container-narrow">
-        <div style="background: var(--navy); color: var(--white); padding: 3rem; text-align: center; border-radius: 8px;">
-          <h2 style="color: var(--white); margin-bottom: 1.5rem;">The Cost of Failure</h2>
-          
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0;">
-            <div>
-              <div style="font-size: 3rem; font-weight: 700; color: var(--yellow); line-height: 1;">60-70%</div>
-              <p style="margin: 0.5rem 0 0; font-size: 0.875rem;">Inbound intent lost</p>
-            </div>
-            <div>
-              <div style="font-size: 3rem; font-weight: 700; color: var(--yellow); line-height: 1;">3-8hrs</div>
-              <p style="margin: 0.5rem 0 0; font-size: 0.875rem;">Average response time</p>
-            </div>
-            <div>
-              <div style="font-size: 3rem; font-weight: 700; color: var(--yellow); line-height: 1;">30-40%</div>
-              <p style="margin: 0.5rem 0 0; font-size: 0.875rem;">Follow-up consistency</p>
-            </div>
-          </div>
-          
-          <p style="font-size: 1.125rem; margin: 2rem 0 0; line-height: 1.6;">
-            When infrastructure fails, <strong style="color: var(--yellow);">revenue visibility is zero.</strong>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-gray">
-      <div class="container container-narrow">
-        <div class="content-block">
-          <h2>What Needs to Change</h2>
-          <p class="text-large" style="text-align: center; margin-bottom: 2rem;">
-            Not volume. <strong>Infrastructure.</strong>
-          </p>
-          
-          <div class="comparison">
-            <div class="comparison-before">
-              <h4>Manual System</h4>
-              <ul style="margin: 0;">
-                <li>Leads arrive</li>
-                <li>Manual handling</li>
-                <li>Inconsistent response</li>
-                <li>Intent decays</li>
-                <li>Revenue unpredictable</li>
-              </ul>
-            </div>
+            <h3>How It Happens</h3>
+            <ul>
+              <li>"Temporary" manual processes become permanent</li>
+              <li>No time allocated to build proper automation</li>
+              <li>Teams work around broken systems instead of fixing them</li>
+              <li>Institutional knowledge trapped in individual heads</li>
+            </ul>
             
-            <div class="comparison-after">
-              <h4>Automated System</h4>
-              <ul style="margin: 0;">
-                <li>Leads arrive</li>
-                <li>Instant capture</li>
-                <li>Automated response</li>
-                <li>Systematic follow-up</li>
-                <li>Revenue measurable</li>
-              </ul>
-            </div>
+            <h3>The Cost</h3>
+            <ul>
+              <li><strong>10–20 hours per person per week</strong> on manual tasks</li>
+              <li>High error rates—humans make mistakes in repetitive work</li>
+              <li>Can't scale without hiring proportionally</li>
+              <li>Key person risk—operations collapse when someone leaves</li>
+            </ul>
+            
+            <h3>The Fix</h3>
+            <p>
+              <a href="/systems/workflow-automation">Workflow automation</a> that eliminates 
+              manual processes and creates systems that run without human intervention.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Failure Pattern 4 -->
     <section class="section">
-      <div class="container container-narrow">
-        <div class="content-block text-center">
-          <h2>Diagnose the Failure Point</h2>
-          <p class="text-large">
-            Map exactly where your infrastructure fails before investing in fixes.
-          </p>
-          <div class="mt-lg">
-            <a href="audit.html" class="btn btn-primary">Request Revenue Recovery Audit</a>
+      <div class="container">
+        <div class="failure-pattern">
+          <div class="failure-pattern__header">
+            <span class="failure-pattern__number">04</span>
+            <h2 class="failure-pattern__title">Data Silos</h2>
           </div>
-          <p class="mt-md">
-            <a href="systems.html">Or explore the six systems we rebuild →</a>
+          
+          <div class="failure-pattern__content">
+            <h3>The Symptom</h3>
+            <p>
+              Marketing can't see sales data. Sales doesn't know what marketing promised. 
+              Operations doesn't know customer history. Everyone has their own spreadsheet.
+            </p>
+            
+            <h3>How It Happens</h3>
+            <ul>
+              <li>Systems purchased by individual departments</li>
+              <li>No integration between platforms</li>
+              <li>Teams download data to work locally</li>
+              <li>Politics and turf protection prevent data sharing</li>
+            </ul>
+            
+            <h3>The Cost</h3>
+            <ul>
+              <li>Decisions made on incomplete information</li>
+              <li>Duplicate records—same customer in multiple systems</li>
+              <li>Impossible to get accurate revenue forecasts</li>
+              <li>Customer experience suffers—your company doesn't know them</li>
+            </ul>
+            
+            <h3>The Fix</h3>
+            <p>
+              <a href="/systems/revenue-infrastructure">Revenue infrastructure</a> that creates 
+              unified data models and single sources of truth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Failure Pattern 5 -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="failure-pattern">
+          <div class="failure-pattern__header">
+            <span class="failure-pattern__number">05</span>
+            <h2 class="failure-pattern__title">Invisible Bottlenecks</h2>
+          </div>
+          
+          <div class="failure-pattern__content">
+            <h3>The Symptom</h3>
+            <p>
+              Work piles up at certain stages. Approvals take forever. You can't find where 
+              delays happen because there's no visibility into the process.
+            </p>
+            
+            <h3>How It Happens</h3>
+            <ul>
+              <li>No tracking of work in progress</li>
+              <li>Manual approval chains with no accountability</li>
+              <li>Critical steps buried in email threads</li>
+              <li>No metrics on cycle time or throughput</li>
+            </ul>
+            
+            <h3>The Cost</h3>
+            <ul>
+              <li>Deals delayed in approval limbo</li>
+              <li>Customer projects take 2–3x longer than promised</li>
+              <li>Can't identify what's slowing you down</li>
+              <li>Teams blame each other because no one has data</li>
+            </ul>
+            
+            <h3>The Fix</h3>
+            <p>
+              <a href="/systems/workflow-automation">Workflow automation</a> with visibility, 
+              SLAs, and automated routing to eliminate bottlenecks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Failure Pattern 6 -->
+    <section class="section">
+      <div class="container">
+        <div class="failure-pattern">
+          <div class="failure-pattern__header">
+            <span class="failure-pattern__number">06</span>
+            <h2 class="failure-pattern__title">Integration Failure</h2>
+          </div>
+          
+          <div class="failure-pattern__content">
+            <h3>The Symptom</h3>
+            <p>
+              Your CRM doesn't sync with marketing automation. Email signatures aren't consistent. 
+              Reporting requires exporting from five systems and merging in Excel.
+            </p>
+            
+            <h3>How It Happens</h3>
+            <ul>
+              <li>Tools bought without checking compatibility</li>
+              <li>API integrations built by someone who left</li>
+              <li>Vendor promised "easy integration"—it wasn't</li>
+              <li>No one owns the integration layer</li>
+            </ul>
+            
+            <h3>The Cost</h3>
+            <ul>
+              <li>Data sync failures create chaos</li>
+              <li>Manual workarounds to move data between systems</li>
+              <li>Can't trust any single system as accurate</li>
+              <li>Hours wasted reconciling conflicting data</li>
+            </ul>
+            
+            <h3>The Fix</h3>
+            <p>
+              <a href="/systems/revenue-infrastructure">Revenue infrastructure</a> and 
+              <a href="/systems/ai-integration">AI integration systems</a> that connect platforms 
+              reliably and maintain data integrity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recognition Section -->
+    <section class="section section--dark">
+      <div class="container container--narrow">
+        <div class="text-center">
+          <h2>Recognize Any of These?</h2>
+          <p class="lead">
+            You're not alone. These patterns repeat across every industry and company size.
           </p>
+          <p>
+            The good news: they're solvable. Once you know what's broken, you can fix it systematically.
+          </p>
+          <div class="cta-group">
+            <a href="/rebuild" class="btn btn--primary btn--large">
+              See What We Rebuild
+            </a>
+            <a href="/audit" class="btn btn--secondary btn--large">
+              Get Your Infrastructure Diagnosed
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Pages -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title text-center">Next Steps</h2>
+        
+        <div class="grid grid--3">
+          <div class="card">
+            <div class="card__content">
+              <h3 class="card__title">What We Rebuild</h3>
+              <p class="card__description">
+                See the exact systems we build to fix these failures
+              </p>
+              <a href="/rebuild" class="card__link">Learn More →</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card__content">
+              <h3 class="card__title">Our Methodology</h3>
+              <p class="card__description">
+                How we diagnose, design, and implement solutions
+              </p>
+              <a href="/system" class="card__link">View Process →</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card__content">
+              <h3 class="card__title">Request Audit</h3>
+              <p class="card__description">
+                Get a diagnostic analysis of your infrastructure
+              </p>
+              <a href="/audit" class="card__link">Start Now →</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  
-  
-  
-  
-  
-  
-
-
-  <!-- Emergency Navigation Fallback -->
-  
-
-
-<style>
-
-/* Simple Navigation Fix */
-.main-nav {
-  background: #00043F;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.nav-logo {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.nav-logo:hover {
-  color: #FFD700;
-}
-
-.mobile-toggle {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.mobile-toggle span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  margin: 3px 0;
-  transition: all 0.3s ease;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  background: #FFD700;
-  color: #00043F;
-}
-
-.nav-cta {
-  background: #FFD700;
-  color: #00043F;
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.nav-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-}
-
-/* Mobile Navigation */
-@media (max-width: 768px) {
-  .mobile-toggle {
-    display: flex;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: #00043F;
-    flex-direction: column;
-    padding: 2rem;
-    transition: left 0.3s ease;
-    gap: 1rem;
-  }
-  
-  .nav-menu.active {
-    left: 0;
-  }
-  
-  .mobile-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  
-  .mobile-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .mobile-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-  }
-}
-
-</style>
-<script>
-
-// Simple Navigation System - Bulletproof
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Mobile Menu Toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
-        });
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h3 class="footer__title">Zinara</h3>
+          <p class="footer__description">
+            Revenue infrastructure for companies that refuse to plateau
+          </p>
+        </div>
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                mobileToggle.classList.remove('active');
-            }
-        });
+        <div class="footer__section">
+          <h4 class="footer__heading">Systems</h4>
+          <ul class="footer__links">
+            <li><a href="/systems/workflow-automation">Workflow Automation</a></li>
+            <li><a href="/systems/revenue-infrastructure">Revenue Infrastructure</a></li>
+            <li><a href="/systems/lead-handling">Lead Handling</a></li>
+            <li><a href="/systems/ai-integration">AI Integration</a></li>
+            <li><a href="/systems/marketing-infrastructure">Marketing Infrastructure</a></li>
+            <li><a href="/systems/communication-brand-web">Communication Systems</a></li>
+          </ul>
+        </div>
         
-        // Close menu when clicking links
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                mobileToggle.classList.remove('active');
-            });
-        });
-    }
-    
-    // Active Link Detection
-    function setActiveLink() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.nav-link');
+        <div class="footer__section">
+          <h4 class="footer__heading">Company</h4>
+          <ul class="footer__links">
+            <li><a href="/failure">How Systems Fail</a></li>
+            <li><a href="/rebuild">What We Rebuild</a></li>
+            <li><a href="/system">Our Methodology</a></li>
+            <li><a href="/results">Results</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/insights">Insights</a></li>
+          </ul>
+        </div>
         
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            
-            // Remove active class from all links
-            link.classList.remove('active');
-            
-            // Add active class to current page
-            if (href === currentPage || 
-                (currentPage === '' && href === 'index.html') ||
-                (currentPage === 'index.html' && href === '')) {
-                link.classList.add('active');
-            }
-        });
-    }
-    
-    // Initialize active link
-    setActiveLink();
-    
-    console.log('Simple Navigation Loaded Successfully');
-});
+        <div class="footer__section">
+          <h4 class="footer__heading">Contact</h4>
+          <ul class="footer__links">
+            <li><a href="/audit">Request Audit</a></li>
+            <li><a href="/contact">Get in Touch</a></li>
+            <li><a href="mailto:info@zinara.co.ke">info@zinara.co.ke</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          &copy; 2025 Zinara. All rights reserved.
+        </p>
+        <ul class="footer__legal">
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/cookies">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-</script>
+  <!-- Chatbot Widget -->
+  <div id="chatbot-widget"></div>
 
-<style>
-
-/* Simple Navigation - Uses Original Design Variables */
-.main-nav {
-  background: var(--navy);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.nav-logo {
-  color: var(--white);
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.nav-logo:hover {
-  color: var(--yellow);
-}
-
-.mobile-toggle {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.mobile-toggle span {
-  width: 25px;
-  height: 3px;
-  background: var(--white);
-  margin: 3px 0;
-  transition: all 0.3s ease;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-link {
-  color: var(--white);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  background: var(--yellow);
-  color: var(--navy);
-}
-
-.nav-cta {
-  background: var(--yellow);
-  color: var(--navy);
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.nav-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(248, 207, 64, 0.3);
-}
-
-/* Mobile Navigation */
-@media (max-width: 768px) {
-  .mobile-toggle {
-    display: flex;
-  }
+  <!-- Scripts -->
+  <script src="/js/navigation.js"></script>
+  <script src="/js/chatbot.js"></script>
+  <script src="/js/analytics.js"></script>
   
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: var(--navy);
-    flex-direction: column;
-    padding: 2rem;
-    transition: left 0.3s ease;
-    gap: 1rem;
-  }
-  
-  .nav-menu.active {
-    left: 0;
-  }
-  
-  .mobile-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  
-  .mobile-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .mobile-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-  }
-}
-
-</style>
-<script>
-
-// Simple Navigation System
-document.addEventListener('DOMContentLoaded', function() {
+  <!-- Analytics Event Tracking -->
+  <script>
+    // Track page view
+    window.trackEvent('page_view', {
+      page_title: 'How Systems Fail',
+      page_path: '/failure'
+    });
     
-    // Mobile Menu Toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
+    // Track CTA clicks
+    document.querySelectorAll('a[href="/audit"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        window.trackEvent('cta_click', {
+          cta_text: this.textContent.trim(),
+          cta_location: 'failure_page',
+          cta_destination: '/audit'
         });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                mobileToggle.classList.remove('active');
-            }
-        });
-        
-        // Close menu when clicking links
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                mobileToggle.classList.remove('active');
-            });
-        });
-    }
-    
-    // Active Link Detection
-    function setActiveLink() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            
-            // Remove active class from all links
-            link.classList.remove('active');
-            
-            // Add active class to current page
-            if (href === currentPage || 
-                (currentPage === '' && href === 'index.html') ||
-                (currentPage === 'index.html' && href === '')) {
-                link.classList.add('active');
-            }
-        });
-    }
-    
-    // Initialize active link
-    setActiveLink();
-    
-    console.log('Simple Navigation Loaded Successfully');
-});
-
-</script>
+      });
+    });
+  </script>
 </body>
 </html>
