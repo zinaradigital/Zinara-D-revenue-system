@@ -1,2 +1,2 @@
-# ZINARA-R.STM.
-Zinara R.S
+# Zinara-D-revenue-system
+18 ZINARA REV STM
